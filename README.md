@@ -158,4 +158,4 @@ These are intentionally not part of the MVP:
 
 ## License
 
-No project license has been selected yet. Choose one before public distribution.
+Licensed under the [Apache License, Version 2.0](LICENSE).
