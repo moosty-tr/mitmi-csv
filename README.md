@@ -13,6 +13,12 @@ It is intended for tools that already know how to fetch CSV from a URL, such as:
 The MVP is intentionally narrow: no database, no historical storage, no JSON
 output, no UI, no background polling, and no write operations.
 
+## Status
+
+The current v0.1 service is implemented, simulator-tested, and packaged as a
+local Windows x64 release archive. Real device validation is still required
+before claiming field readiness for a specific device or site.
+
 ## Run
 
 ```powershell
@@ -140,10 +146,21 @@ service what TCP endpoint to connect to.
 ```powershell
 dotnet build MitmiCsv.slnx
 dotnet test MitmiCsv.slnx
+.\scripts\Invoke-ReleaseSmokeTest.ps1
 ```
 
 The test suite includes a small local Modbus TCP simulator for the current read
 path. Real device validation is still required before claiming field readiness.
+
+Build a local Windows x64 release archive:
+
+```powershell
+.\scripts\Publish-Release.ps1 -Version 0.1.0
+```
+
+The release script creates `artifacts/release/mitmi-csv-v0.1.0-win-x64.zip`.
+By default the archive is self-contained and includes `mitmi-csv.exe`, the
+README, Apache-2.0 license, and third-party notices.
 
 ## Future Scope
 
